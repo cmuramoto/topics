@@ -5,3 +5,5 @@ target
 .factorypath
 .attach*
 transaction-logs
+*build_artifacts.txt
+native-image-agent

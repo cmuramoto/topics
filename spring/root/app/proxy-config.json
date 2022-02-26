@@ -1,0 +1,5 @@
+[
+  {
+    "interfaces":["javax.persistence.EntityManager", "org.springframework.orm.jpa.EntityManagerProxy"]
+  }  
+]
