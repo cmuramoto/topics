@@ -26,7 +26,7 @@ import com.nc.utils.json.JSON;
 
 @Configuration
 // @EntityScan("com.nc.domain.internal")
-@EnableJpaRepositories(basePackages = { "com.nc.repositories.jpa" })
+@EnableJpaRepositories(basePackages = { "com.nc.repositories.jpa.internal" })
 public class PersistenceConfig {
 
 	final Logger log;
@@ -78,18 +78,6 @@ public class PersistenceConfig {
 		return emf;
 	}
 
-//
-//	@Bean
-//	public DataSource dataSource() {
-//		var ds = new DriverManagerDataSource();
-//		ds.setDriverClassName(AppEnv.databaseDriver());
-//		ds.setUrl(AppEnv.databaseUrl());
-//		ds.setUsername(AppEnv.databaseUser());
-//		ds.setPassword(AppEnv.databasePass());
-//
-//		return ds;
-//	}
-//
 	@Bean
 	public EntityManagerFactory entityManagerFactory() {
 		return byBuilder();

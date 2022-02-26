@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @PropertySource({ "classpath:test.properties" })
 @ImportResource("classpath:persistence.xml")
-@EnableJpaRepositories(basePackages = "com.nc.repositories.jpa")
+@EnableJpaRepositories(basePackages = "com.nc.repositories.jpa.internal")
 public class TestConfig {
 
 }

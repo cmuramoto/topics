@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @PropertySource({ "classpath:test.properties" })
 @ImportResource("classpath:persistence.xml")
-@EnableJpaRepositories(basePackages = "com.nc.repositories.jpa")
-@ComponentScan(basePackages = { "com.nc.services" })
+@EnableJpaRepositories(basePackages = "com.nc.repositories.jpa.internal")
+@ComponentScan(basePackages = { "com.nc.services.internal", "com.nc.services.frontend" })
 public class IntegrationTestConfig {
 
 }
