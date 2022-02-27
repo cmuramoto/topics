@@ -14,6 +14,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>app</module>
+		<module>services</module>
 	</modules>
 	<properties>
 		<failsafe.useModulePath>false</failsafe.useModulePath>

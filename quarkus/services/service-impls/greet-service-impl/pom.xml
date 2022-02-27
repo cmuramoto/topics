@@ -6,45 +6,36 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.nc.topics.quarkus</groupId>
-		<artifactId>quarkus</artifactId>
+		<artifactId>service-impls</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>app</artifactId>
+	<artifactId>greet-service-impl</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>greet-service-impl</artifactId>
+			<artifactId>greet-service-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-resteasy-jackson</artifactId>
+			<artifactId>quarkus-arc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-narayana-jta</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-junit5</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.jboss.jandex</groupId>
-				<artifactId>jandex-maven-plugin</artifactId>
-			</plugin>
-			<!-- Must inline plugin config for Eclipse because the tooling does not 
-				recognize parent definition. In command line it's ok -->
-			<plugin>
 				<groupId>${quarkus.platform.group-id}</groupId>
 				<artifactId>quarkus-maven-plugin</artifactId>
+				<version>${quarkus.platform.version}</version>
 				<extensions>true</extensions>
 				<executions>
 					<execution>
@@ -55,6 +46,13 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jboss.jandex</groupId>
+				<artifactId>jandex-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>

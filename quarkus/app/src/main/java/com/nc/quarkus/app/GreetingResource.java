@@ -19,6 +19,7 @@ import javax.ws.rs.core.MediaType;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.jaxrs.annotation.JacksonFeatures;
+import com.nc.service.api.greet.GreetService;
 
 @Path("/hello")
 public class GreetingResource {
@@ -40,9 +41,19 @@ public class GreetingResource {
 	@Inject
 	TransactionManager tm;
 
+	@Inject
+	GreetService gs;
+
 	@Transactional(TxType.REQUIRES_NEW)
 	public Transaction get() throws SystemException {
 		return tm.getTransaction();
+	}
+
+	@GET
+	@Path("/greet")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String greet() throws SystemException {
+		return gs.greet();
 	}
 
 	@GET
@@ -62,7 +73,6 @@ public class GreetingResource {
 	@Path("/stack")
 	@Produces(MediaType.APPLICATION_JSON)
 	@JacksonFeatures(serializationEnable = { SerializationFeature.INDENT_OUTPUT })
-
 	public Map.Entry<String, List<FrameInfo>> stack() {
 
 		var stack = StackWalker.getInstance(Option.RETAIN_CLASS_REFERENCE).walk(frames -> frames.map(frame -> {
