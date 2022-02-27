@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+		<parent>
+		<groupId>com.nc.topics</groupId>
+		<artifactId>topics</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<groupId>com.nc.topics.spring</groupId>
+	<artifactId>spring</artifactId>
+	<packaging>pom</packaging>
+	<name>root</name>
+	<description>Root Project</description>
+
+	<properties>
+		<narayana.starter.version>2.6.2</narayana.starter.version>
+		<openapi.docs.version>1.6.6</openapi.docs.version>
+		<spring.boot.version>2.6.3</spring.boot.version>
+		<spring.native.version>0.11.2</spring.native.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<modules>
+		<module>domain</module>
+		<module>libs</module>
+		<module>data</module>
+		<module>services</module>
+		<module>app</module>
+		<module>subtopics</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jdk8</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-parameter-names</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+		<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring.boot.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.springframework.experimental</groupId>
+					<artifactId>spring-aot-maven-plugin</artifactId>
+					<version>${spring.native.version}</version>
+					<executions>
+						<execution>
+							<id>generate</id>
+							<goals>
+								<goal>generate</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<removeXmlSupport>true</removeXmlSupport>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

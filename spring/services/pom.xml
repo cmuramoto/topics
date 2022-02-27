@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.nc.topics.spring</groupId>
-		<artifactId>root</artifactId>
+		<artifactId>spring</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>subtopics</artifactId>
+	<artifactId>services</artifactId>
 	<packaging>pom</packaging>
 	<name>${project.parent.artifactId}::${project.artifactId}</name>
         <modules>
-          <module>xa-h2</module>
+          <module>movie-services</module>
         </modules>
 </project>
