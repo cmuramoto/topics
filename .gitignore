@@ -50,7 +50,4 @@ native-image-agent
 .env
 
 # Quarkus
-.mvnw
-mvnw
 .mvn
-mvnw.cmd
