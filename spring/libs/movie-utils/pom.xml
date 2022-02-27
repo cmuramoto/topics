@@ -10,7 +10,6 @@
 	<artifactId>movie-utils</artifactId>
 	<packaging>jar</packaging>
 	<name>${project.parent.artifactId}::${project.artifactId}</name>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -23,5 +22,4 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
-
 </project>

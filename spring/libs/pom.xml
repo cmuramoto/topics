@@ -10,8 +10,8 @@
 	<artifactId>libs</artifactId>
 	<packaging>pom</packaging>
 	<name>${project.parent.artifactId}::${project.artifactId}</name>
-        <modules>
-          <module>movie-utils</module>
-          <module>movie-security-jwt</module>
-        </modules>
+	<modules>
+		<module>movie-utils</module>
+		<module>movie-security-jwt</module>
+	</modules>
 </project>

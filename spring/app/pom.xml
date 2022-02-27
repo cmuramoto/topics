@@ -10,14 +10,12 @@
 	<artifactId>app</artifactId>
 	<packaging>jar</packaging>
 	<name>${project.parent.artifactId}::${project.artifactId}</name>
-
 	<!-- <profiles> <profile> <id>native-image</id> <activation> <activeByDefault>true</activeByDefault> 
 		</activation> <build> </build> <dependencies> <dependency> <groupId>org.springframework.experimental</groupId> 
 		<artifactId>spring-native</artifactId> <version>${spring.native.version}</version> 
 		</dependency> <dependency> <groupId>org.springframework.experimental</groupId> 
 		<artifactId>spring-aot-maven-plugin</artifactId> <version>${spring.native.version}</version> 
 		</dependency> </dependencies> </profile> </profiles> -->
-
 	<profiles>
 		<profile>
 			<id>aot</id>
@@ -60,8 +58,6 @@
 			</build>
 		</profile>
 	</profiles>
-
-
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -74,14 +70,11 @@
 							<pluginExecutions>
 								<pluginExecution>
 									<pluginExecutionFilter>
-										<groupId>
-											org.springframework.experimental
+										<groupId> org.springframework.experimental 
 										</groupId>
-										<artifactId>
-											spring-aot-maven-plugin
+										<artifactId> spring-aot-maven-plugin 
 										</artifactId>
-										<versionRange>
-											[0.11.2,)
+										<versionRange> [0.11.2,) 
 										</versionRange>
 										<goals>
 											<goal>test-generate</goal>
@@ -98,8 +91,6 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -149,9 +140,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
 	</dependencies>
-
 	<repositories>
 		<repository>
 			<id>central</id>
@@ -218,6 +207,4 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
-
 </project>

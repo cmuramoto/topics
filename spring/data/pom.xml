@@ -10,7 +10,7 @@
 	<artifactId>data</artifactId>
 	<packaging>pom</packaging>
 	<name>${project.parent.artifactId}::${project.artifactId}</name>
-        <modules>
-          <module>movie-repositories</module>
-        </modules>
+	<modules>
+		<module>movie-repositories</module>
+	</modules>
 </project>

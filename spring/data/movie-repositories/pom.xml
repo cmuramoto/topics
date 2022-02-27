@@ -10,7 +10,6 @@
 	<artifactId>movie-repositories</artifactId>
 	<packaging>jar</packaging>
 	<name>${project.parent.artifactId}::${project.artifactId}</name>
-
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
