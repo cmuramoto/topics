@@ -30,6 +30,7 @@
 	</properties>
 	<modules>
 		<module>spring</module>
+		<module>quarkus</module>
 	</modules>
 	<profiles>
 		<profile>
@@ -67,17 +68,17 @@
 	</profiles>
 	<build>
 		<defaultGoal>install</defaultGoal>
-		<directory>${basedir}/target</directory>
+		<directory>${project.basedir}/target</directory>
 		<finalName>${project.artifactId}-${project.version}</finalName>
 		<resources>
 			<resource>
-				<directory>${basedir}/src/main/resources</directory>
+				<directory>${project.basedir}/src/main/resources</directory>
 				<filtering>true</filtering>
 			</resource>
 		</resources>
 		<testResources>
 			<testResource>
-				<directory>${basedir}/src/test/resources</directory>
+				<directory>${project.basedir}/src/test/resources</directory>
 				<filtering>true</filtering>
 			</testResource>
 		</testResources>
