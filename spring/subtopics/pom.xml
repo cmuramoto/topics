@@ -11,6 +11,6 @@
 	<packaging>pom</packaging>
 	<name>${project.parent.artifactId}::${project.artifactId}</name>
 	<modules>
-		<module>xa-h2</module>
+		<module>xa</module>
 	</modules>
 </project>
