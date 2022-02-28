@@ -1,4 +1,4 @@
-package com.nc.service.api.greet;
+package com.nc.topics.quarkus.services.api.greet;
 
 public interface GreetService {
 

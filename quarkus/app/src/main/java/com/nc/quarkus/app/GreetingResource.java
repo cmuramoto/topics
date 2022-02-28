@@ -19,7 +19,7 @@ import javax.ws.rs.core.MediaType;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.jaxrs.annotation.JacksonFeatures;
-import com.nc.service.api.greet.GreetService;
+import com.nc.topics.quarkus.services.api.greet.GreetService;
 
 @Path("/hello")
 public class GreetingResource {

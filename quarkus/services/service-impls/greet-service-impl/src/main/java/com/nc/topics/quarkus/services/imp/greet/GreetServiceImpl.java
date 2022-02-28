@@ -1,4 +1,4 @@
-package com.nc.service.impl.greet;
+package com.nc.topics.quarkus.services.imp.greet;
 
 import java.time.LocalDateTime;
 
@@ -8,7 +8,7 @@ import javax.transaction.SystemException;
 import javax.transaction.TransactionManager;
 import javax.transaction.Transactional;
 
-import com.nc.service.api.greet.GreetService;
+import com.nc.topics.quarkus.services.api.greet.GreetService;
 
 @Singleton
 public class GreetServiceImpl implements GreetService {
