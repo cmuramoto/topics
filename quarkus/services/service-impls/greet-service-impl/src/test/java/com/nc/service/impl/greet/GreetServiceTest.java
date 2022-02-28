@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import org.junit.jupiter.api.Test;
 
-import com.nc.service.api.greet.GreetService;
+import com.nc.topics.quarkus.services.api.greet.GreetService;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.smallrye.common.constraint.Assert;
