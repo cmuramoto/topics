@@ -14,7 +14,10 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>app</module>
+		<module>domain</module>
+		<module>repositories</module>
 		<module>services</module>
+		<module>subtopics</module>
 	</modules>
 	<properties>
 		<failsafe.useModulePath>false</failsafe.useModulePath>
@@ -53,6 +56,25 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>${quarkus.platform.group-id}</groupId>
+				<artifactId>quarkus-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jboss.jandex</groupId>
+				<artifactId>jandex-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
