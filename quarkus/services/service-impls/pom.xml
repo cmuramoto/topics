@@ -10,8 +10,8 @@
 		<version>1.0.0</version>
 	</parent>
 	<artifactId>service-impls</artifactId>
-        <packaging>pom</packaging>  
+	<packaging>pom</packaging>
 	<modules>
-          <module>greet-service-impl</module>
-        </modules>
+		<module>greet-service-impl</module>
+	</modules>
 </project>
