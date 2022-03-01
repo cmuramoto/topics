@@ -3,8 +3,8 @@ package com.nc.topics.quarkus.xa.test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeMap;
 
 import javax.inject.Inject;
 
@@ -17,6 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.slf4j.LoggerFactory;
 
+import com.nc.quarkus.topics.util.JSON;
 import com.nc.topics.quarkus.domain.internal.movie.AppUser;
 import com.nc.topics.quarkus.domain.internal.movie.Movie;
 import com.nc.topics.quarkus.repositories.audit.AuditActionRepository;
@@ -30,16 +31,14 @@ import io.quarkus.hibernate.orm.runtime.PersistenceUnitsHolder;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public abstract class XATestTemplate {
 
-	@BeforeAll
-	@AfterAll
-	public static void log() {
+	static void dump(boolean finished) {
 		var descriptors = PersistenceUnitsHolder.getPersistenceUnitDescriptors();
 		var log = LoggerFactory.getLogger(XATestTemplate.class);
 
-		record PUInfo(List<String> managed, String dialect, String txType) {
+		record PUInfo(String name, List<String> managed, String dialect, String txType) {
 		}
 
-		var infos = new TreeMap<String, PUInfo>();
+		var infos = new ArrayList<>(2);
 
 		for (var desc : descriptors) {
 			var name = desc.getName();
@@ -53,11 +52,20 @@ public abstract class XATestTemplate {
 
 			// log.info("PU:{}=>({}) Dialect: {}. TxType: {}", name, managed, dialect, txType);
 
-			infos.put(name, new PUInfo(managed, dialect, txType));
+			infos.add(new PUInfo(name, managed, dialect, txType));
 		}
 
-		log.info("Persistence unit config: \n{}\n", infos);
+		log.info("{} Persistence Units: \n{}\n", finished ? "Finished test with " : "Starting test with ", JSON.pretty(infos));
+	}
 
+	@AfterAll
+	public static void finished() {
+		dump(false);
+	}
+
+	@BeforeAll
+	public static void starting() {
+		dump(false);
 	}
 
 	@Inject
