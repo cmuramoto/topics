@@ -3,12 +3,19 @@ package com.nc.topics.quarkus.xa.test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.List;
+import java.util.TreeMap;
+
 import javax.inject.Inject;
 
+import org.hibernate.cfg.AvailableSettings;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.slf4j.LoggerFactory;
 
 import com.nc.topics.quarkus.domain.internal.movie.AppUser;
 import com.nc.topics.quarkus.domain.internal.movie.Movie;
@@ -16,16 +23,42 @@ import com.nc.topics.quarkus.repositories.audit.AuditActionRepository;
 import com.nc.topics.quarkus.repositories.internal.MovieRepository;
 import com.nc.topics.quarkus.xa.ComboService;
 import com.nc.topics.quarkus.xa.ForcedException;
-import com.nc.topics.quarkus.xa.profiles.H2_H2_Profile;
 
 import io.quarkus.arc.ArcUndeclaredThrowableException;
-import io.quarkus.test.junit.QuarkusTest;
-import io.quarkus.test.junit.TestProfile;
+import io.quarkus.hibernate.orm.runtime.PersistenceUnitsHolder;
 
-@QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@TestProfile(H2_H2_Profile.class)
-public class TestBase {
+public abstract class XATestTemplate {
+
+	@BeforeAll
+	@AfterAll
+	public static void log() {
+		var descriptors = PersistenceUnitsHolder.getPersistenceUnitDescriptors();
+		var log = LoggerFactory.getLogger(XATestTemplate.class);
+
+		record PUInfo(List<String> managed, String dialect, String txType) {
+		}
+
+		var infos = new TreeMap<String, PUInfo>();
+
+		for (var desc : descriptors) {
+			var name = desc.getName();
+			var txType = desc.getTransactionType().toString();
+			var managed = desc.getManagedClassNames().stream().map(n -> {
+				var ix = n.lastIndexOf('.');
+
+				return ix > 0 ? n.substring(ix + 1) : n;
+			}).toList();
+			var dialect = desc.getProperties().getProperty(AvailableSettings.DIALECT);
+
+			// log.info("PU:{}=>({}) Dialect: {}. TxType: {}", name, managed, dialect, txType);
+
+			infos.put(name, new PUInfo(managed, dialect, txType));
+		}
+
+		log.info("Persistence unit config: \n{}\n", infos);
+
+	}
 
 	@Inject
 	ComboService cs;
