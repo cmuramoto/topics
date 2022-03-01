@@ -4,7 +4,7 @@ import javax.enterprise.inject.Instance;
 import javax.inject.Singleton;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nc.quarkus.util.JSON;
+import com.nc.quarkus.topics.util.JSON;
 
 import io.quarkus.jackson.ObjectMapperCustomizer;
 

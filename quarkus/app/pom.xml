@@ -16,6 +16,11 @@
 			<artifactId>greet-service-impl</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+			<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>utils</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-resteasy-jackson</artifactId>

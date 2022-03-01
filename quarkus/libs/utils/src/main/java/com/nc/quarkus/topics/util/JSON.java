@@ -1,4 +1,4 @@
-package com.nc.quarkus.util;
+package com.nc.quarkus.topics.util;
 
 import java.io.IOException;
 import java.io.InputStream;
