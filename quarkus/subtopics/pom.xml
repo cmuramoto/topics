@@ -13,5 +13,6 @@
         <packaging>pom</packaging>  
 	<modules>
           <module>xa</module>
+          <module>db-rider</module>
         </modules>
 </project>

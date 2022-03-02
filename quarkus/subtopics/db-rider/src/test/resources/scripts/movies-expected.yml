@@ -1,0 +1,13 @@
+Movie:
+  - id: 1
+    title: "regex:t.+"
+    imdbID: "regex:i.+"
+    poster: "regex:p.+"
+    score: "regex:(\\d|\\.)+"
+    totalVotes: "regex:\\d+"
+  - id: 2
+    title: "regex:t.+"
+    imdbID: "regex:i.+"
+    poster: "regex:p.+"
+    score: "regex:(\\d|\\.)+"
+    totalVotes: "regex:\\d+"

@@ -1,0 +1,13 @@
+Movie:
+  - id: 1
+    title: t1
+    imdbID: i1
+    poster: p1
+    score: 1
+    totalVotes: 1
+  - id: 2
+    title: t2
+    imdbID: i2
+    poster: p2
+    score: 2
+    totalVotes: 2
