@@ -14,7 +14,7 @@ bin/
 nb-configuration.xml
 
 # Visual Studio Code
-.vscode
+#.vscode
 .factorypath
 
 # Maven
@@ -51,3 +51,7 @@ native-image-agent
 
 # Quarkus
 .mvn
+
+#AWS
+
+aws.keys

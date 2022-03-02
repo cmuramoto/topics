@@ -13,12 +13,12 @@
 	<artifactId>quarkus</artifactId>
 	<packaging>pom</packaging>
 	<modules>
-		<module>app</module>
 		<module>domain</module>
 		<module>libs</module>
 		<module>repositories</module>
 		<module>services</module>
 		<module>subtopics</module>
+		<module>deployments</module>
 	</modules>
 	<properties>
 		<failsafe.useModulePath>false</failsafe.useModulePath>

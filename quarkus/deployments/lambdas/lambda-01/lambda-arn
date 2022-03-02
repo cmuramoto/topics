@@ -1,0 +1,1 @@
+export LAMBDA_ROLE_ARN=arn:aws:iam::970356857002:role/lambda-01
