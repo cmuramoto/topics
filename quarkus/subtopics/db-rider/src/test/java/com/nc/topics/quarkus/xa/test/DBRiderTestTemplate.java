@@ -11,7 +11,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.slf4j.LoggerFactory;
 
 import com.nc.quarkus.topics.util.JSON;
-import com.nc.topics.quarkus.repositories.internal.MovieRepository;
+import com.nc.topics.quarkus.repositories.spring.MovieRepository;
 
 import io.quarkus.hibernate.orm.runtime.PersistenceUnitsHolder;
 

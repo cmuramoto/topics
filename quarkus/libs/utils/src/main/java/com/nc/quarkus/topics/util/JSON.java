@@ -337,4 +337,10 @@ public final class JSON {
 	static ObjectWriter writer(boolean pretty) {
 		return pretty ? mapper().writerWithDefaultPrettyPrinter() : mapper().writer();
 	}
+
+	public static class $ {
+		String toJSON(Object any) {
+			return JSON.pretty(any);
+		}
+	}
 }

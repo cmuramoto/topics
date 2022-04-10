@@ -55,3 +55,5 @@ native-image-agent
 #AWS
 
 aws.keys
+
+.dbeaver

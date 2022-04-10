@@ -18,6 +18,7 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<maven.compiler.release>17</maven.compiler.release>
+		<maven.compiler.parameters>true</maven.compiler.parameters>
 		<maven.test.failure.ignore>true</maven.test.failure.ignore>
 		<openapi.docs.version>1.6.6</openapi.docs.version>
 		<plugins.compiler.version>3.8.1</plugins.compiler.version>
@@ -29,9 +30,16 @@
 		<slf4j.version>1.7.30</slf4j.version>
 	</properties>
 	<modules>
-		<module>spring</module>
 		<module>quarkus</module>
 	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
 	<profiles>
 		<profile>
 			<id>coverage</id>
@@ -146,10 +154,18 @@
 						<encoding>${project.build.sourceEncoding}</encoding>
 						<source>${maven.compiler.source}</source>
 						<target>${maven.compiler.target}</target>
+						<parameters>true</parameters>
 						<fork>false</fork>
 						<compilerArgs>
 							<arg>-parameters</arg>
 						</compilerArgs>
+						<annotationProcessorPaths>
+							<path>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok</artifactId>
+								<version>1.18.22</version>
+							</path>
+						</annotationProcessorPaths>
 					</configuration>
 				</plugin>
 				<plugin>

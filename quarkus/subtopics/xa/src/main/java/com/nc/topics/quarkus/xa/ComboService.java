@@ -15,8 +15,8 @@ import org.jboss.logging.Logger;
 import com.nc.topics.quarkus.domain.internal.audit.AuditAction;
 import com.nc.topics.quarkus.domain.internal.movie.AppUser;
 import com.nc.topics.quarkus.domain.internal.movie.Movie;
-import com.nc.topics.quarkus.repositories.audit.AuditActionRepository;
-import com.nc.topics.quarkus.repositories.internal.MovieRepository;
+import com.nc.topics.quarkus.repositories.spring.AuditActionRepository;
+import com.nc.topics.quarkus.repositories.spring.MovieRepository;
 
 @Singleton
 public class ComboService {

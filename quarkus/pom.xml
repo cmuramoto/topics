@@ -13,6 +13,7 @@
 	<artifactId>quarkus</artifactId>
 	<packaging>pom</packaging>
 	<modules>
+		<module>extensions</module>
 		<module>domain</module>
 		<module>libs</module>
 		<module>repositories</module>

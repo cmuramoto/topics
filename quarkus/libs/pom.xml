@@ -13,5 +13,6 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>utils</module>
+		<module>lucene</module>
 	</modules>
 </project>

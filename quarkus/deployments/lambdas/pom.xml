@@ -12,6 +12,9 @@
 	<artifactId>lambdas</artifactId>
         <packaging>pom</packaging>  
 	<modules>
-          <module>lambda-01</module>
+          <module>dynamo-forwarder</module>
+          <module>fibo</module>
+          <module>lucene-spell</module>
+          <module>s3-listener</module>
         </modules>
 </project>
